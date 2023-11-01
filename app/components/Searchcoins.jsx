@@ -1,24 +1,13 @@
 "use client"
 
-import {useState,useEffect} from "react"
+import {useState} from "react"
 import { useRouter } from "next/navigation"
-// import { useSearchParams } from "next/navigation"
 
 export default function SearchCoins({getSearchResults}) {
     const router = useRouter();
-    // const searchParams = useSearchParams();
-    // const val = searchParams.get("query");
-    // console.log(value);
-    
-  // useEffect(() => {
-  //   if (val) {
-  //     // Fetch data from the API on initial render based on the query parameter.
-  //     handleSubmit(val);
-  //   }
-  // }, []);
+  
   const [query, setQuery] = useState('')
   const handleSubmit = async (value) =>{
-    // e.preventDefault()
    const response = await fetch(`/api/coins/search?query=${value}`)  
    const coin = await response.json()
    getSearchResults(coin)
@@ -39,3 +28,4 @@ const handleChange = (value) => {
     </div>
   )
 }
+

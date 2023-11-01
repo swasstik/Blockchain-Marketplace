@@ -27,7 +27,6 @@ if(!val){
       const response = await fetch(`/api/coins/search?query=${val}`);
       const coins = await response.json();
       setCoins(coins);
-      // getSearchResults(coins);
     }
     getCoins(val);
   },[])
